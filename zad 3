@@ -1,1 +1,38 @@
+using System;
+namespace zad3;
+public class Food
+{
+    public virtual void Eat()
+    {
+        Console.WriteLine("Едим...");
+    }
 
+    public class Pizza : Food
+    {
+        public override void Eat()
+        {
+            Console.WriteLine("Едим пиццу!");
+        }
+    }
+    public class Burger : Food
+    {
+        public override void Eat()
+        {
+            Console.WriteLine("Едим бургер!");
+        }
+    }
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Food[] lunch = { new Pizza(), new Burger(), new Food() };
+
+            foreach (var food in lunch)
+            {
+                food.Eat();
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
