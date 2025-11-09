@@ -1,1 +1,39 @@
+using System;
+namespace zad2;
+public class Message
+{
+    public virtual void Send()
+    {
+        Console.WriteLine("Сообщение отправлено.");
+    }
+}
 
+public class Email : Message
+{
+    public override void Send()
+    {
+        Console.WriteLine("Email отправлен!");
+    }
+}
+
+public class SMS : Message
+{
+    public override void Send()
+    {
+        Console.WriteLine("SMS отправлено!");
+    }
+}
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Message[] messages = { new Email(), new SMS(), new Message() };
+
+        foreach (var message in messages)
+        {
+            message.Send();
+        }
+
+        Console.ReadLine();
+    }
+}
